@@ -9,6 +9,10 @@ export const search = (req, res) => {
         res.render("search", { pageTitle: "Search", searchingBy });
 }
 
+export const editVideo = (req, res) => {
+    res.render("editVideo", { pageTitle: "Edit Video" });
+}
+
 export const upload = (req, res) => {
     res.render("upload", { pageTitle: "Upload" });
 }
@@ -17,7 +21,4 @@ export const videoDetail = (req, res) => {
 }
 export const deleteVideo = (req, res) => {
     res.render("deleteVideo", { pageTitle: "Delete Video" });
-}
-export const editVideo = (req, res) => {
-    res.render("editVideo", { pageTitle: "Edit Video" });
 }
