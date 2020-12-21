@@ -1,8 +1,8 @@
 export const join = (req, res) => {
-    res.send("Join");
+    res.render("join", { pageTitle: "Join" })
 }
 export const login = (req, res) => {
-    res.send("Login");
+    res.render("login", { pageTitle: "Login" })
 }
 export const logout = (req, res) => {
     res.render("logout", { pageTitle: "Logout" })
