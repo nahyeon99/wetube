@@ -4,7 +4,7 @@ export const videos = [
         title: "Video awesome",
         description: "This is something I love",
         views: 24,
-        videoFile: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4?_=1",
+        videoFile: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
         creator: {
             id: 121212,
             name: "Nahyeon",
@@ -16,7 +16,7 @@ export const videos = [
         title: "Video beautiful",
         description: "This is something I love",
         views: 24,
-        videoFile: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4?_=1",
+        videoFile: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
         creator: {
             id: 121212,
             name: "Nahyeon",
@@ -28,7 +28,7 @@ export const videos = [
         title: "Video nice",
         description: "This is something I love",
         views: 24,
-        videoFile: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4?_=1",
+        videoFile: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
         creator: {
             id: 121212,
             name: "Nahyeon",
@@ -40,7 +40,7 @@ export const videos = [
         title: "Video super",
         description: "This is something I love",
         views: 24,
-        videoFile: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4?_=1",
+        videoFile: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
         creator: {
             id: 121212,
             name: "Nahyeon",
