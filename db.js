@@ -3,13 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 mongoose.connect(
-    /* mongod msg error add code */
-    "mongodb://127.0.0.1:27017/whatever",{
-    ignoreUndefined: false,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-    },
-    /******************************/
     process.env.MONGO_URL,
     {
         useNewUrlParser: true,

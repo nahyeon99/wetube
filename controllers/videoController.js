@@ -2,14 +2,14 @@ import routes from "../routes";
 import Video from "../models/Video";
 
 export const home = async(req, res) => {
-    try{
+    try {
         const videos = await Video.find({});
         res.render("home", { pageTitle: "Home", videos });
-    } catch(error){
+    } catch(error) {
         console.log(error);
         res.render("home", { pageTitle: "Home", videos: [] });
     }
-}
+};
 
 export const search = (req, res) => {
     const {
@@ -25,8 +25,8 @@ export const editVideo = (req, res) => {
 export const getUpload = (req, res) => {
     res.render("upload", { pageTitle: "Upload" });
 }
-export const postUpload = async(req, res) => {
-    const {
+export const postUpload = async (req, res) => {
+    const { 
         body: { title, description },
         file: { path }
     } = req;
@@ -35,6 +35,7 @@ export const postUpload = async(req, res) => {
         title,
         description
     });
+    console.log(newVideo);
     res.redirect(routes.videoDetail(newVideo.id));
 };
 

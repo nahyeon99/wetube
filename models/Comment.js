@@ -12,4 +12,4 @@ const CommentSchema = new mongoose.Schema({
 });
 
 const model = mongoose.model("Commnet", CommentSchema);
-export default model;
+export default model; 
