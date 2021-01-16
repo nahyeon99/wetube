@@ -45,10 +45,12 @@ export const githubLoginCallback = async (_, ___, profile, cb) => {
   } = profile;
   try {
     const user = await User.findOne({ email });
+    console.log(user);
     if (user) {
       user.githubId = id;
-      user.avatarUrl;
+      user.avatarUrl = avatarUrl;
       user.name = name;
+      user.email = email;
       user.save();
       return cb(null, user);
     }
@@ -56,8 +58,9 @@ export const githubLoginCallback = async (_, ___, profile, cb) => {
       email,
       name,
       githubId: id,
-      avatarUrl,
+      avatarUrl: avatar_url,
     });
+    console.log(newUser);
     return cb(null, newUser);
   } catch (error) {
     return cb(error);
@@ -69,6 +72,7 @@ export const postGithubLogin = (req, res) => {
   console.log(req.user.id);
   console.log(req.user.avatarUrl);
   console.log(req.user.name);
+  console.log(req.user.email);
 };
 
 export const logout = (req, res) => {
