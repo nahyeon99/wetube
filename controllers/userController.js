@@ -58,9 +58,8 @@ export const githubLoginCallback = async (_, ___, profile, cb) => {
       email,
       name,
       githubId: id,
-      avatarUrl: avatar_url,
+      avatarUrl: avatarUrl,
     });
-    console.log(newUser);
     return cb(null, newUser);
   } catch (error) {
     return cb(error);
@@ -84,8 +83,22 @@ export const getMe = (req, res) => {
   res.render('userDetail', { pageTitle: 'User Detail', user: req.user });
 };
 
-export const userDetail = (req, res) => {
-  res.render('userDetail', { pageTitle: 'User Detail' });
+export const userDetail = async (req, res) => {
+  console.log('hi');
+  const {
+    params: { id },
+  } = req;
+  console.log(req);
+  console.log('hi');
+  try {
+    const user = await User.findById(id);
+    console.log(user);
+    console.log('-----');
+    console.log(id);
+    res.render('userDetail', { pageTitle: 'User Detail', user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
 };
 export const editProfile = (req, res) => {
   res.render('editProfile', { pageTitle: 'Edit Profile' });
