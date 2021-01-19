@@ -45,7 +45,6 @@ export const githubLoginCallback = async (_, ___, profile, cb) => {
   } = profile;
   try {
     const user = await User.findOne({ email });
-    console.log(user);
     if (user) {
       user.githubId = id;
       user.avatarUrl = avatarUrl;
@@ -68,10 +67,21 @@ export const githubLoginCallback = async (_, ___, profile, cb) => {
 
 export const postGithubLogin = (req, res) => {
   res.redirect(routes.home);
-  console.log(req.user.id);
-  console.log(req.user.avatarUrl);
-  console.log(req.user.name);
-  console.log(req.user.email);
+};
+
+export const facebookLogin = passport.authenticate('facebook');
+
+export const facebookLoginCallback = (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
+export const postFacebookLogin = (req, res) => {
+  res.redirect(routes.home);
 };
 
 export const logout = (req, res) => {
@@ -84,17 +94,11 @@ export const getMe = (req, res) => {
 };
 
 export const userDetail = async (req, res) => {
-  console.log('hi');
   const {
     params: { id },
   } = req;
-  console.log(req);
-  console.log('hi');
   try {
     const user = await User.findById(id);
-    console.log(user);
-    console.log('-----');
-    console.log(id);
     res.render('userDetail', { pageTitle: 'User Detail', user });
   } catch (error) {
     res.redirect(routes.home);

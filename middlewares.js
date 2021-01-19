@@ -11,6 +11,7 @@ export const localsMiddleware = (req, res, next) => {
   next();
 };
 
+/* 로그아웃된 사용자만 접근할 수 있게 만드는 미들웨어 */
 export const onlyPublic = (req, res, next) => {
   if (req.user) {
     res.redirect(routes.home);
@@ -19,6 +20,7 @@ export const onlyPublic = (req, res, next) => {
   }
 };
 
+/* 로그인된 사용자만 접근할 수 있게 만드는 미들웨어 */
 export const onlyPrivate = (req, res, next) => {
   if (req.user) {
     next();
