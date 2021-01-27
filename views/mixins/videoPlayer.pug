@@ -8,6 +8,7 @@ mixin videoPlayer(video = {})
                 span#currentTime 00:00:00 
                 |/ 
                 span#totalTime 00:00:00
+                input.videoPlayer__volumn#jsVolumn(type="range", min="0", max="10", step="1", value="5")
             .videoPlayer__columns
                 span#jsPlayButton
                     i.fa.fa-play
