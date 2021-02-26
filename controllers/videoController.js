@@ -93,7 +93,6 @@ export const deleteVideo = async (req, res) => {
   const {
     params: { id },
   } = req;
-  console.log('Delete');
   try {
     const video = await Video.findById(id);
     if (video.creator.toString() !== req.user.id) {
@@ -140,6 +139,34 @@ export const postAddComment = async (req, res) => {
       creator: user.id,
     });
     video.comments.push(newComment.id);
+    video.save();
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+// Delete Comment
+
+export const postDeleteComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { targetComment },
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    const comment = await Comment.find({ text: targetComment });
+    const commentIndex = video.comments.some((value, index) => {
+      if (comment[0].id === value) {
+        return index;
+      }
+      return index;
+    });
+
+    const remove = video.comments.splice(commentIndex, 1);
+
+    await Comment.findOneAndRemove({ text: targetComment });
     video.save();
   } catch (error) {
     res.status(400);
